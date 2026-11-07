@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #cfd8dc;
+    color: #263238;
+    display: flex;
+    flex-direction: column;
+}
+
+/* NAGŁÓWEK */
+header {
+    background-color: #37474f;
+    color: white;
+    text-align: center;
+    padding-top: 25px;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 0.95rem;
+    color: #b0bec5;
+    margin-bottom: 18px;
+}
+
+/* MENU NAV */
+nav {
+    background-color: #263238;
+    position: relative;
+}
+
+#check {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 12px;
+    font-size: 1.6rem;
+    color: white;
+    text-align: center;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.menu a {
+    color: #eceff1;
+    text-decoration: none;
+    padding: 8px 14px;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.menu a:hover {
+    background-color: #455a64;
+}
+
+.menu a.active {
+    background-color: #546e7a;
+}
+
+/* TREŚĆ GŁÓWNA */
+.glowne {
+    max-width: 1200px; /* Nieco szerszy kontener na większe karty */
+    width: 100%;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.karty {
+    display: flex;
+    gap: 25px; /* Większy odstęp między kartami */
+    margin-bottom: 30px;
+}
+
+.karta {
+    background-color: #ffffff;
+    border: 1px solid #b0bec5;
+    border-radius: 8px;
+    flex: 1;
+    padding: 28px; /* Znacznie większe wnętrze (padding) kart */
+    transition: 0.25s ease;
+}
+
+.karta:hover {
+    transform: translateY(-5px);
+    border-color: #78909c;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.karta h3 {
+    font-size: 1.25rem; /* Większy nagłówek karty */
+    color: #263238;
+    margin-bottom: 14px;
+}
+
+.foto {
+    width: 100%;
+    height: 200px; /* Zwiększona wysokość zdjęć z 160px do 200px */
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 14px;
+}
+
+.karta p {
+    font-size: 0.95rem; /* Powiększony główny tekst w karcie */
+    line-height: 1.5;
+    margin-bottom: 14px;
+    color: #37474f;
+}
+
+.karta b {
+    font-size: 0.9rem;
+    color: #263238;
+}
+
+.maly-tekst {
+    font-size: 0.88rem; /* Powiększony podtekst */
+    color: #546e7a;
+    margin-bottom: 18px;
+}
+
+.karta a {
+    color: #37474f;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-decoration: underline;
+    transition: 0.2s;
+}
+
+.karta a:hover {
+    color: #000000;
+}
+
+.dolny-tekst {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.dolny-tekst a {
+    color: #263238;
+    font-weight: bold;
+}
+
+/* STOPKA */
+footer {
+    background-color: #263238;
+    color: #b0bec5;
+    text-align: center;
+    padding: 18px;
+    font-size: 0.85rem;
+}
+
+/* WERSJA MOBILNA (HAMBURGER) */
+@media (max-width: 768px) {
+    .karty {
+        flex-direction: column;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .menu a {
+        display: block;
+        text-align: center;
+        border-radius: 0;
+        padding: 12px;
+    }
+
+    #check:checked ~ .menu,
+    nav:hover .menu {
+        display: flex;
+    }
+}
