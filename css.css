@@ -1,203 +1,192 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    font-size: 1.35rem;
+    white-space: nowrap;
 }
 
-html, body {
-    height: 100%;
+.fact span {
+    color: var(--page-muted);
+    font-size: 0.82rem;
+    line-height: 1.5;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #cfd8dc;
-    color: #263238;
+/* Lista przyczyn i źródeł */
+.cause-list,
+.source-list {
     display: flex;
     flex-direction: column;
+    gap: 16px;
 }
 
-/* NAGŁÓWEK */
-header {
-    background-color: #37474f;
-    color: white;
-    text-align: center;
-    padding-top: 25px;
+.cause-item,
+.source-item {
+    display: grid;
+    grid-template-columns: 45px 55px minmax(0, 1fr);
+    align-items: start;
+    gap: 20px;
+    padding: 27px;
+    border: 1px solid var(--page-border);
+    border-radius: 10px;
+    background: #ffffff;
 }
 
-header h1 {
-    font-size: 2rem;
-    margin-bottom: 5px;
+.cause-number,
+.source-number {
+    color: var(--page-green);
+    font-size: 0.9rem;
+    font-weight: 800;
 }
 
-header p {
-    font-size: 0.95rem;
-    color: #b0bec5;
-    margin-bottom: 18px;
-}
-
-/* MENU NAV */
-nav {
-    background-color: #263238;
-    position: relative;
-}
-
-#check {
-    display: none;
-}
-
-.hamburger {
-    display: none;
-    cursor: pointer;
-    padding: 12px;
-    font-size: 1.6rem;
-    color: white;
-    text-align: center;
-}
-
-.menu {
-    list-style: none;
+.cause-icon {
     display: flex;
+    width: 48px;
+    height: 48px;
+    align-items: center;
     justify-content: center;
-    gap: 15px;
-    padding: 10px 0;
+    border-radius: 9px;
+    background: #edf4ef;
+    color: var(--page-green);
+    font-size: 1.5rem;
 }
 
-.menu a {
-    color: #eceff1;
-    text-decoration: none;
-    padding: 8px 14px;
-    font-size: 0.95rem;
-    border-radius: 4px;
-    transition: 0.2s;
+.cause-copy h3 {
+    margin-bottom: 10px;
 }
 
-.menu a:hover {
-    background-color: #455a64;
+.cause-copy .card-label {
+    margin-bottom: 8px;
 }
 
-.menu a.active {
-    background-color: #546e7a;
+/* Karty dotyczące skutków */
+.effects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
 }
 
-/* TREŚĆ GŁÓWNA */
-.glowne {
-    max-width: 1200px; /* Nieco szerszy kontener na większe karty */
-    width: 100%;
-    margin: 40px auto;
-    padding: 0 20px;
-    flex: 1;
-}
-
-.karty {
+.effect-icon {
     display: flex;
-    gap: 25px; /* Większy odstęp między kartami */
-    margin-bottom: 30px;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 9px;
+    background: #edf4ef;
+    color: var(--page-green);
+    font-size: 1.4rem;
 }
 
-.karta {
-    background-color: #ffffff;
-    border: 1px solid #b0bec5;
-    border-radius: 8px;
-    flex: 1;
-    padding: 28px; /* Znacznie większe wnętrze (padding) kart */
-    transition: 0.25s ease;
+.action-panel {
+    margin-top: 35px;
+    padding: 30px;
+    border-radius: 10px;
+    background: var(--page-dark);
+    color: #ffffff;
 }
 
-.karta:hover {
-    transform: translateY(-5px);
-    border-color: #78909c;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+.action-panel h3 {
+    margin-bottom: 12px;
+    font-size: 1.4rem;
 }
 
-.karta h3 {
-    font-size: 1.25rem; /* Większy nagłówek karty */
-    color: #263238;
-    margin-bottom: 14px;
+.action-panel p {
+    color: #d8e3dc;
+    line-height: 1.7;
 }
 
-.foto {
-    width: 100%;
-    height: 200px; /* Zwiększona wysokość zdjęć z 160px do 200px */
-    object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 14px;
-}
-
-.karta p {
-    font-size: 0.95rem; /* Powiększony główny tekst w karcie */
-    line-height: 1.5;
-    margin-bottom: 14px;
-    color: #37474f;
-}
-
-.karta b {
-    font-size: 0.9rem;
-    color: #263238;
-}
-
-.maly-tekst {
-    font-size: 0.88rem; /* Powiększony podtekst */
-    color: #546e7a;
-    margin-bottom: 18px;
-}
-
-.karta a {
-    color: #37474f;
-    font-weight: bold;
-    font-size: 0.9rem;
+.text-link {
+    color: var(--page-green);
+    font-weight: 700;
     text-decoration: underline;
-    transition: 0.2s;
 }
 
-.karta a:hover {
-    color: #000000;
+/* Lista źródeł */
+.source-item {
+    grid-template-columns: 45px minmax(0, 1fr) 25px;
+    align-items: center;
 }
 
-.dolny-tekst {
-    text-align: center;
-    font-size: 0.9rem;
-    margin-bottom: 30px;
+.source-copy h3 {
+    margin-bottom: 8px;
+    color: var(--page-dark);
+    font-size: 1.2rem;
 }
 
-.dolny-tekst a {
-    color: #263238;
-    font-weight: bold;
+.source-copy p {
+    color: var(--page-muted);
+    line-height: 1.7;
 }
 
-/* STOPKA */
-footer {
-    background-color: #263238;
-    color: #b0bec5;
-    text-align: center;
-    padding: 18px;
+.source-arrow {
+    color: var(--page-green);
+    font-size: 1.3rem;
+}
+
+/* Wyróżnione informacje i przejście do kolejnej strony */
+.notice {
+    margin-top: 35px;
+    padding: 25px 28px;
+    border-left: 4px solid var(--page-green);
+    border-radius: 0 8px 8px 0;
+    background: #e8f0ea;
+}
+
+.notice strong {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--page-dark);
+}
+
+.notice p {
+    color: var(--page-muted);
+    line-height: 1.7;
+}
+
+.next-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 45px;
+    padding: 23px 26px;
+    border: 1px solid var(--page-border);
+    border-radius: 9px;
+    background: #ffffff;
+    color: var(--page-dark);
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.next-page:hover {
+    transform: translateY(-3px);
+    border-color: var(--page-green);
+}
+
+.next-page span {
+    color: var(--page-muted);
     font-size: 0.85rem;
 }
 
-/* WERSJA MOBILNA (HAMBURGER) */
-@media (max-width: 768px) {
-    .karty {
-        flex-direction: column;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .menu {
-        display: none;
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .menu a {
-        display: block;
-        text-align: center;
-        border-radius: 0;
-        padding: 12px;
-    }
-
-    #check:checked ~ .menu,
-    nav:hover .menu {
-        display: flex;
-    }
+.next-page strong {
+    color: var(--page-green);
 }
+
+/* Stopka podstron */
+footer.site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 28px 6%;
+    background: var(--page-dark);
+    color: #d0ddd5;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+.site-footer > a:last-child {
+    color: #a9d2b7;
+    text-decoration: none;
