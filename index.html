@@ -3,91 +3,502 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zanieczyszczenie powietrza w Polsce</title>
+    <title>Smog w Polsce – Portal Edukacyjny</title>
     <link rel="stylesheet" href="css.css">
 </head>
 <body>
 
-    <!-- Nagłówek -->
-    <header>
-        <h1>Smog w Polsce</h1>
-        <p>Portal edukacyjny o jakości powietrza</p>
+    <!-- Boczne kropki -->
+    <div class="kropki-nav">
+        <button class="kropka aktywna" onclick="przewinDo(0)" title="Start"></button>
+        <button class="kropka" onclick="przewinDo(1)" title="Substancje"></button>
+        <button class="kropka" onclick="przewinDo(2)" title="Rodzaje smogu"></button>
+        <button class="kropka" onclick="przewinDo(3)" title="Przyczyny"></button>
+        <button class="kropka" onclick="przewinDo(4)" title="Skutki"></button>
+        <button class="kropka" onclick="przewinDo(5)" title="Galeria"></button>
+        <button class="kropka" onclick="przewinDo(6)" title="Źródła"></button>
+    </div>
 
-        <!-- Nawigacja z hamburgerem -->
+    <!-- EKRAN 1: HERO BANNER -->
+    <section class="ekran hero" id="start">
+        <div class="hero-tresc">
+            <span class="hero-odznaka">Raport jakości powietrza • Polska 2026</span>
+            <h2>Czym oddychamy w Polsce?</h2>
+            <p>
+                Polska od lat znajduje się w czołówce krajów Unii Europejskiej o najwyższym stężeniu pyłów zawieszonych i rakotwórczego benzo(a)pirenu. Sprawdź, skąd bierze się smog i jak chronić przed nim siebie oraz bliskich.
+            </p>
+            <div class="hero-przyciski">
+                <a href="#substancje" class="btn-glowny" onclick="przewinDo(1); return false;">Rozpocznij przegląd</a>
+                <a href="#galeria" class="btn-drugi" onclick="przewinDo(5); return false;">Zobacz galerię</a>
+            </div>
+        </div>
+
+        <a href="#substancje" class="hero-strzalka" onclick="przewinDo(1); return false;" title="Przewiń w dół">&#8595;</a>
+    </section>
+
+    <!-- MENU -->
+    <header id="nawigacja">
+        <div class="header-gora">
+            <h1>Smog w Polsce</h1>
+            <p>Portal edukacyjny o jakości powietrza i ochronie środowiska</p>
+        </div>
+
         <nav>
             <input type="checkbox" id="check">
             <label for="check" class="hamburger">&#9776;</label>
             
             <ul class="menu">
-                <li><a href="#" class="active">Strona główna</a></li>
-                <li><a href="rodzaje.html">Rodzaje</a></li>
-                <li><a href="przyczyny.html">Przyczyny</a></li>
-                <li><a href="skutki.html">Skutki</a></li>
-                <li><a href="zrodla.html">Źródła</a></li>
+                <li><a href="#start" onclick="przewinDo(0); return false;">Start</a></li>
+                <li><a href="#substancje" class="nav-link active" onclick="przewinDo(1); return false;">Substancje</a></li>
+                <li><a href="#rodzaje" class="nav-link" onclick="przewinDo(2); return false;">Rodzaje</a></li>
+                <li><a href="#przyczyny" class="nav-link" onclick="przewinDo(3); return false;">Przyczyny</a></li>
+                <li><a href="#skutki" class="nav-link" onclick="przewinDo(4); return false;">Skutki</a></li>
+                <li><a href="#galeria" class="nav-link" onclick="przewinDo(5); return false;">Galeria</a></li>
+                <li><a href="#zrodla" class="nav-link" onclick="przewinDo(6); return false;">Źródła</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Główna treść -->
-    <main class="glowne">
-        
-        <div class="karty">
-            
-            <!-- Karta 1: Pyły PM10 i PM2.5 -->
-            <div class="karta">
-                <h3>Pyły PM10 i PM2.5</h3>
-                <img src="1.jpeg" alt="Smog spowijający wieżowce w mieście" class="foto">
-                <p>
-                    Drobne cząsteczki pyłu, które trafiają do układu oddechowego i krwiobiegu. Zwiększają ryzyko chorób płuc oraz serca.
-                </p>
-                <b>Źródła zanieczyszczeń:</b>
-                <p class="maly-tekst">
-                    Domowe piece na węgiel i drewno, transport drogowy oraz przemysł.
-                </p>
-                <a href="#">Więcej o pyłach...</a>
+    <!-- EKRAN 2: SUBSTANCJE -->
+    <section class="ekran sekcja-strona" id="substancje">
+        <div class="kontener reveal">
+            <h2 class="tytul-sekcji">Główne zanieczyszczenia powietrza</h2>
+            <p class="podtytul-sekcji">Najgroźniejsze związki chemiczne i pyły monitorowane przez stacje pomiarowe GIOŚ.</p>
+
+            <div class="karty">
+                <div class="karta">
+                    <img src="1.jpeg" alt="Smog spowijający wieżowce w mieście" class="foto">
+                    <h3>Pyły zawieszone PM10 i PM2.5</h3>
+                    <p>
+                        Mieszanina cząstek stałych i ciekłych zawieszonych w powietrzu. Pył PM2.5 ma średnicę mniejszą niż 2,5 mikrometra (ok. 1/30 grubości ludzkiego włosa) i przenika bezpośrednio do pęcherzyków płucnych oraz krwiobiegu.
+                    </p>
+                    <div class="norma-box">
+                        <b>Norma dobowa WHO:</b> PM2.5 – 15 µg/m³ | PM10 – 45 µg/m³
+                    </div>
+                </div>
+
+                <div class="karta">
+                    <img src="2.png" alt="Gęsty dym z komina" class="foto">
+                    <h3>Benzo(a)piren (WWA)</h3>
+                    <p>
+                        Silnie toksyczny i rakotwórczy związek z grupy wielopierścieniowych węglowodorów aromatycznych. Powstaje podczas niepełnego spalania węgla, drewna oraz odpadów w domowych piecach o niskiej sprawności.
+                    </p>
+                    <div class="norma-box">
+                        <b>Norma roczna UE:</b> maksymalnie 1 ng/m³ (w Polsce przekraczana nawet 6-krotnie)
+                    </div>
+                </div>
+
+                <div class="karta">
+                    <img src="3.jpeg" alt="Spaliny samochodowe i zakorkowane miasto" class="foto">
+                    <h3>Dwutlenek azotu (NO₂) i Ozon (O₃)</h3>
+                    <p>
+                        Brunatny, drażniący gaz powstający w wysokich temperaturach w silnikach spalinowych (zwłaszcza wysokoprężnych). W słoneczne dni reaguje z innymi związkami, tworząc trujący ozon przypowierzchniowy.
+                    </p>
+                    <div class="norma-box">
+                        <b>Główne źródło:</b> ruch uliczny w centrach miast oraz elektrownie cieplne
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EKRAN 3: RODZAJE SMOGU -->
+    <section class="ekran sekcja-strona sekcja-ciemniejsza" id="rodzaje">
+        <div class="kontener reveal">
+            <h2 class="tytul-sekcji">Rodzaje smogu występujące w Polsce</h2>
+            <p class="podtytul-sekcji">Skład chemiczny smogu zależy od pory roku, temperatury powietrza oraz rodzaju paliw.</p>
+
+            <div class="karty">
+                <div class="karta">
+                    <img src="2.png" alt="Zimowy dym z kominów" class="foto">
+                    <h3>Smog londyński (kwaśny)</h3>
+                    <p>
+                        Występuje od listopada do marca podczas mroźnej, bezwietrznej pogody i inwersji termicznej. Nazwa pochodzi od wielkiego smogu w Londynie z grudnia 1952 roku, który pochłonął tysiące ofiar.
+                    </p>
+                    <b>Skład i warunki:</b>
+                    <p class="maly-tekst">
+                        Dwutlenek siarki (SO₂), tlenki azotu, tlenek węgla, sadza oraz wysokie stężenia pyłów zawieszonych PM10 i PM2.5 przy dużej wilgotności powietrza.
+                    </p>
+                </div>
+
+                <div class="karta">
+                    <img src="3.jpeg" alt="Letni ruch uliczny w mieście" class="foto">
+                    <h3>Smog typu Los Angeles (fotochemiczny)</h3>
+                    <p>
+                        Pojawia się w gorące, słoneczne dni letnie (głównie w lipcu i sierpniu) w dużych aglomeracjach o dużym natężeniu ruchu samochodowego. Ogranicza widoczność i powoduje łzawienie oczu.
+                    </p>
+                    <b>Skład i warunki:</b>
+                    <p class="maly-tekst">
+                        Tlenki azotu, tlenek węgla, lotne związki organiczne oraz ozon troposferyczny (O₃) powstający pod wpływem silnego promieniowania UV.
+                    </p>
+                </div>
+
+                <div class="karta">
+                    <img src="1.jpeg" alt="Zawiesina pyłów nad zabudową" class="foto">
+                    <h3>Smog pyłowy i aerozole wtórne</h3>
+                    <p>
+                        Tworzy się w wyniku reakcji chemicznych zachodzących w atmosferze między gazami (amoniakiem z rolnictwa, SO₂, NOₓ), które łączą się w mikroskopijne cząstki wtórnego pyłu zawieszonego.
+                    </p>
+                    <b>Zagrożenie:</b>
+                    <p class="maly-tekst">
+                        Utrzymuje się nad dolinami i kotlinami przez wiele dni, przenosząc zanieczyszczenia na dziesiątki kilometrów poza miasta.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EKRAN 4: PRZYCZYNY -->
+    <section class="ekran sekcja-strona" id="przyczyny">
+        <div class="kontener reveal">
+            <h2 class="tytul-sekcji">Skąd bierze się smog w Polsce?</h2>
+            <p class="podtytul-sekcji">Udział głównych sektorów gospodarki i gospodarstw domowych w emisji pyłów PM2.5.</p>
+
+            <div class="wykres-paski">
+                <div class="pasek-wiersz">
+                    <div class="pasek-etykieta"><span>Ogrzewanie domów (niska emisja)</span><b>52%</b></div>
+                    <div class="pasek-tlo"><div class="pasek-wypelnienie pasek-52"></div></div>
+                </div>
+                <div class="pasek-wiersz">
+                    <div class="pasek-etykieta"><span>Transport drogowy i ścieranie opon/hamulców</span><b>28%</b></div>
+                    <div class="pasek-tlo"><div class="pasek-wypelnienie pasek-28"></div></div>
+                </div>
+                <div class="pasek-wiersz">
+                    <div class="pasek-etykieta"><span>Przemysł, energetyka i rolnictwo</span><b>20%</b></div>
+                    <div class="pasek-tlo"><div class="pasek-wypelnienie pasek-20"></div></div>
+                </div>
             </div>
 
-            <!-- Karta 2: Benzo(a)piren (Twoje wybrane zdjęcie: Reuk1nmutFI) -->
-            <div class="karta">
-                <h3>Benzo(a)piren</h3>
-                <img src="2.png" alt="Gęsty dym z komina" class="foto">
-                <p>
-                    Toksyczny i rakotwórczy związek powstający przy spalaniu paliw stałych w niskich temperaturach.
-                </p>
-                <b>Źródła zanieczyszczeń:</b>
-                <p class="maly-tekst">
-                    Głównie tzw. niska emisja, czyli starych typów kotły grzewcze.
-                </p>
-                <a href="#">Więcej o benzo(a)pirenie...</a>
+            <div class="karty">
+                <div class="karta">
+                    <h3>1. Niska emisja z domowych kotłów</h3>
+                    <p>
+                        Spaliny uwalniane z kominów o wysokości poniżej 40 m nie ulegają rozproszeniu i opadają bezpośrednio na sąsiednie ulice. Głównym problemem są pozaklasowe kotły („kopciuchy”) oraz spalanie mokrego drewna i mułów węglowych.
+                    </p>
+                </div>
+
+                <div class="karta">
+                    <h3>2. Transport drogowy w miastach</h3>
+                    <p>
+                        Wąska zabudowa miejska tworzy tzw. kaniony uliczne, w których gromadzą się spaliny. Oprócz rur wydechowych (zwłaszcza starszych silników Diesla) ogromnym źródłem pyłu jest ścieranie klocków hamulcowych i opon.
+                    </p>
+                </div>
+
+                <div class="karta">
+                    <h3>3. Inwersja temperatur i ukształtowanie terenu</h3>
+                    <p>
+                        Zimą zimne, ciężkie powietrze zalega przy ziemi, a nad nim znajduje się warstwa cieplejszego powietrza działająca jak pokrywka. W miastach położonych w kotlinach (np. Kraków, Nowy Sącz, Żywiec) smog zostaje uwięziony.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EKRAN 5: SKUTKI -->
+    <section class="ekran sekcja-strona sekcja-ciemniejsza" id="skutki">
+        <div class="kontener reveal">
+            <h2 class="tytul-sekcji">Skutki zdrowotne i środowiskowe</h2>
+            <p class="podtytul-sekcji">Długotrwała ekspozycja na smog skraca średnią długość życia mieszkańców Polski o blisko 10 miesięcy.</p>
+
+            <div class="liczniki-siatka">
+                <div class="licznik-kafelek">
+                    <span class="licznik-liczba" id="liczba1">0</span>
+                    <p>przedwczesnych zgonów rocznie w Polsce z powodu zanieczyszczenia powietrza</p>
+                </div>
+                <div class="licznik-kafelek">
+                    <span class="licznik-liczba" id="liczba2">0</span><span class="licznik-znak">%</span>
+                    <p>całkowitej emisji rakotwórczego benzo(a)pirenu pochodzi z domowych pieców</p>
+                </div>
+                <div class="licznik-kafelek">
+                    <span class="licznik-liczba" id="liczba3">0</span><span class="licznik-znak">%</span>
+                    <p>przekroczenia norm dobowych pyłu PM10 podczas alarmów smogowych w sezonie grzewczym</p>
+                </div>
             </div>
 
-            <!-- Karta 3: Dwutlenek azotu (NO₂) -->
-            <div class="karta">
-                <h3>Dwutlenek azotu (NO₂)</h3>
-                <img src="3.jpeg" alt="Spaliny samochodowe i zakorkowane miasto" class="foto">
-                <p>
-                    Gaz drażniący drogi oddechowe. Powstaje głównie w procesach spalania w wysokiej temperaturze.
-                </p>
-                <b>Źródła zanieczyszczeń:</b>
-                <p class="maly-tekst">
-                    Ruch samochodowy w miastach (silniki Diesla) oraz elektrownie.
-                </p>
-                <a href="#">Więcej o dwutlenku azotu...</a>
-            </div>
+            <div class="karty">
+                <div class="karta">
+                    <h3>Układ oddechowy</h3>
+                    <p>
+                        Przewlekłe stany zapalne oskrzeli, zaostrzenie astmy, POChP, częste infekcje u dzieci oraz zwiększone ryzyko zachorowania na raka płuc nawet u osób niepalących.
+                    </p>
+                </div>
 
+                <div class="karta">
+                    <h3>Układ krążenia i układ nerwowy</h3>
+                    <p>
+                        Ultradrobnocząsteczkowe pyły przenikają do krwi, przyspieszając miażdżycę, powodując nadciśnienie, zawały serca, udary mózgu oraz problemy z pamięcią i koncentracją.
+                    </p>
+                </div>
+
+                <div class="karta">
+                    <h3>Środowisko i infrastruktura</h3>
+                    <p>
+                        Zakwaszenie gleb i wód powierzchniowych, uszkodzenia igliwia i liści drzew, spadek plonów w rolnictwie oraz przyspieszona korozja elewacji i zabytków architektury.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EKRAN 6: GALERIA -->
+    <section class="ekran sekcja-strona" id="galeria">
+        <div class="kontener reveal">
+            <h2 class="tytul-sekcji">Smog w obiektywie</h2>
+            <p class="podtytul-sekcji">Najedź na zdjęcie, aby przeczytać opis, lub kliknij dowolny kadr, aby otworzyć podgląd pełnoekranowy.</p>
+
+            <div class="galeria-siatka">
+                <div class="galeria-element" onclick="otworzZdjecie(0)">
+                    <img src="1.jpeg" alt="Smog nad centrum miasta">
+                    <div class="galeria-podpis">
+                        <h4>1. Smog nad aglomeracją</h4>
+                        <span>Gęsta warstwa pyłów PM10 i PM2.5 podczas inwersji</span>
+                    </div>
+                </div>
+
+                <div class="galeria-element" onclick="otworzZdjecie(1)">
+                    <img src="2.png" alt="Gęsty dym z domowego komina">
+                    <div class="galeria-podpis">
+                        <h4>2. Niska emisja z domów</h4>
+                        <span>Spalanie paliw stałych w starych kotłach grzewczych</span>
+                    </div>
+                </div>
+
+                <div class="galeria-element" onclick="otworzZdjecie(2)">
+                    <img src="3.jpeg" alt="Korki uliczne i spaliny">
+                    <div class="galeria-podpis">
+                        <h4>3. Transport drogowy</h4>
+                        <span>Emisja dwutlenku azotu (NO₂) w godzinach szczytu</span>
+                    </div>
+                </div>
+
+                <div class="galeria-element" onclick="otworzZdjecie(3)">
+                    <img src="2.png" alt="Emisja przemysłowa i kotłownie" class="filtr-szary">
+                    <div class="galeria-podpis">
+                        <h4>4. Spalanie paliw stałych</h4>
+                        <span>Sadza i wielopierścieniowe węglowodory aromatyczne</span>
+                    </div>
+                </div>
+
+                <div class="galeria-element" onclick="otworzZdjecie(4)">
+                    <img src="1.jpeg" alt="Inwersja termiczna nad miastem" class="filtr-sepia">
+                    <div class="galeria-podpis">
+                        <h4>5. Zjawisko inwersji termicznej</h4>
+                        <span>Zatrzymanie zanieczyszczeń przy powierzchni ziemi</span>
+                    </div>
+                </div>
+
+                <div class="galeria-element" onclick="otworzZdjecie(5)">
+                    <img src="3.jpeg" alt="Smog komunikacyjny" class="filtr-ciemny">
+                    <div class="galeria-podpis">
+                        <h4>6. Kaniony uliczne w miastach</h4>
+                        <span>Kumulacja spalin samochodowych w gęstej zabudowie</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EKRAN 7: ŹRÓDŁA I STOPKA -->
+    <section class="ekran sekcja-strona sekcja-ostatnia sekcja-ciemniejsza" id="zrodla">
+        <div class="kontener reveal">
+            <h2 class="tytul-sekcji">Jak walczyć ze smogiem i gdzie sprawdzać dane?</h2>
+            <p class="podtytul-sekcji">Rzetelne portale monitoringowe oraz działania ograniczające emisję zanieczyszczeń.</p>
+
+            <div class="karty">
+                <div class="karta">
+                    <h3>Monitoring państwowy (GIOŚ)</h3>
+                    <p>
+                        Główny Inspektorat Ochrony Środowiska prowadzi ogólnopolską sieć automatycznych stacji pomiarowych mierzących w czasie rzeczywistym stężenia PM10, PM2.5, NO₂, SO₂ i O₃.
+                    </p>
+                    <a href="https://powietrze.gios.gov.pl" target="_blank">Sprawdź mapę jakości powietrza GIOŚ &rarr;</a>
+                </div>
+
+                <div class="karta">
+                    <h3>Raporty europejskie (EEA i WHO)</h3>
+                    <p>
+                        Europejska Agencja Środowiska oraz Światowa Organizacja Zdrowia publikują coroczne zestawienia jakości powietrza w miastach Europy oraz normy bezpieczne dla zdrowia ludzi.
+                    </p>
+                    <a href="https://www.eea.europa.eu" target="_blank">Otwórz portal Europejskiej Agencji Środowiska &rarr;</a>
+                </div>
+
+                <div class="karta">
+                    <h3>Co możemy zrobić lokalnie?</h3>
+                    <p>
+                        Wymiana starych kotłów na pompy ciepła lub ogrzewanie gazowe, termomodernizacja budynków, wybór komunikacji miejskiej i roweru oraz korzystanie z oczyszczaczy powietrza z filtrem HEPA.
+                    </p>
+                    <a href="https://polskialarmsmogowy.pl" target="_blank">Polski Alarm Smogowy – poradniki &rarr;</a>
+                </div>
+            </div>
         </div>
 
-        <p class="dolny-tekst">
-            Zobacz też: <a href="#">dwutlenek siarki</a>, <a href="#">tlenek węgla</a> oraz <a href="#">ozon</a>.
-        </p>
+        <footer>
+            <p>Autor: Student | Przedmiot: Projektowanie serwisów WWW</p>
+            <p>&copy; 2026 Projekt na zajęcia</p>
+        </footer>
+    </section>
 
-    </main>
+    <!-- Okno powiększenia zdjęcia (Lightbox) -->
+    <div class="lightbox" id="lightbox" onclick="if(event.target === this) zamknijZdjecie()">
+        <span class="lightbox-zamknij" onclick="zamknijZdjecie()">&times;</span>
+        <button class="lightbox-btn" onclick="zmienZdjecie(-1)">&#10094;</button>
+        <div class="lightbox-srodek">
+            <img id="lightbox-img" src="" alt="Powiększone zdjęcie">
+            <p id="lightbox-tekst"></p>
+        </div>
+        <button class="lightbox-btn" onclick="zmienZdjecie(1)">&#10095;</button>
+    </div>
 
-    <!-- Stopka -->
-    <footer>
-        <p>Autor: Student | Przedmiot: Projektowanie serwisów WWW</p>
-        <p>&copy; 2026 Projekt na zajęcia</p>
-    </footer>
+    <script>
+        var sekcje = document.querySelectorAll('.ekran');
+        var linki = document.querySelectorAll('.nav-link');
+        var kropki = document.querySelectorAll('.kropka');
+        var aktualnyEkran = 0;
+        var blokadaScrolla = false;
+        var licznikiUruchomione = false;
+
+        // Płynne przewijanie do wybranej sekcji
+        function przewinDo(numer) {
+            if (numer < 0 || numer >= sekcje.length) return;
+
+            aktualnyEkran = numer;
+            blokadaScrolla = true;
+            document.getElementById('check').checked = false;
+
+            var startY = window.pageYOffset;
+            var celY = sekcje[numer].offsetTop;
+            var roznica = celY - startY;
+            var krok = 0;
+            var iloscKrokow = 45;
+
+            var animacja = setInterval(function () {
+                krok++;
+                var postep = krok / iloscKrokow;
+                // łagodne przyspieszenie i hamowanie
+                var mnoznik = postep < 0.5 ? 2 * postep * postep : 1 - Math.pow(-2 * postep + 2, 2) / 2;
+                window.scrollTo(0, startY + roznica * mnoznik);
+
+                if (krok >= iloscKrokow) {
+                    clearInterval(animacja);
+                    setTimeout(function () {
+                        blokadaScrolla = false;
+                    }, 150);
+                }
+            }, 20);
+
+            odswiezStan(numer);
+        }
+
+        // Aktywacja animacji, menu i kropek dla danego ekranu
+        function odswiezStan(numer) {
+            var sekcja = sekcje[numer];
+            var reveal = sekcja.querySelector('.reveal');
+            if (reveal) {
+                reveal.classList.add('aktywny');
+            }
+
+            if (sekcja.id === 'przyczyny') {
+                sekcja.classList.add('uruchom-wykres');
+            }
+
+            if (sekcja.id === 'skutki' && !licznikiUruchomione) {
+                licznikiUruchomione = true;
+                odliczajLiczbe('liczba1', 45000);
+                odliczajLiczbe('liczba2', 84);
+                odliczajLiczbe('liczba3', 1000);
+            }
+
+            for (var i = 0; i < kropki.length; i++) {
+                kropki[i].classList.remove('aktywna');
+            }
+            kropki[numer].classList.add('aktywna');
+
+            var id = sekcja.id;
+            for (var j = 0; j < linki.length; j++) {
+                linki[j].classList.remove('active');
+                if (linki[j].getAttribute('href') === '#' + id) {
+                    linki[j].classList.add('active');
+                }
+            }
+        }
+
+        function odliczajLiczbe(idElementu, cel) {
+            var element = document.getElementById(idElementu);
+            var aktualna = 0;
+            var skok = Math.ceil(cel / 60);
+
+            var timer = setInterval(function () {
+                aktualna += skok;
+                if (aktualna >= cel) {
+                    element.innerText = cel.toLocaleString('pl-PL');
+                    clearInterval(timer);
+                } else {
+                    element.innerText = aktualna.toLocaleString('pl-PL');
+                }
+            }, 25);
+        }
+
+        // Scrollowanie kółkiem myszy na komputerze
+        window.addEventListener('wheel', function (e) {
+            if (window.innerWidth <= 768) return;
+            if (document.getElementById('lightbox').classList.contains('otwarty')) return;
+
+            e.preventDefault();
+            if (blokadaScrolla) return;
+
+            if (e.deltaY > 20) {
+                przewinDo(aktualnyEkran + 1);
+            } else if (e.deltaY < -20) {
+                przewinDo(aktualnyEkran - 1);
+            }
+        }, { passive: false });
+
+        // Wykrywanie sekcji przy zwykłym przewijaniu (np. na telefonie)
+        window.addEventListener('scroll', function () {
+            if (blokadaScrolla) return;
+            var srodekEkranu = window.pageYOffset + window.innerHeight / 2;
+
+            for (var i = 0; i < sekcje.length; i++) {
+                var gora = sekcje[i].offsetTop;
+                var dol = gora + sekcje[i].offsetHeight;
+                if (srodekEkranu >= gora && srodekEkranu < dol) {
+                    aktualnyEkran = i;
+                    odswiezStan(i);
+                    break;
+                }
+            }
+        });
+
+        // Galeria i Lightbox
+        var zdjecia = [
+            { plik: '1.jpeg', filtr: 'none', opis: 'Smog nad aglomeracją – gęsta zawiesina pyłów PM10 i PM2.5 podczas zimowej inwersji.' },
+            { plik: '2.png', filtr: 'none', opis: 'Niska emisja – dym z domowych pieców węglowych będący głównym źródłem benzo(a)pirenu.' },
+            { plik: '3.jpeg', filtr: 'none', opis: 'Transport drogowy – emisja tlenków azotu (NO₂) i pyłów ze ścierania opon w centrach miast.' },
+            { plik: '2.png', filtr: 'grayscale(100%) contrast(125%)', opis: 'Spalanie paliw stałych – sadza i wielopierścieniowe węglowodory aromatyczne uwalniane w niskich temperaturach.' },
+            { plik: '1.jpeg', filtr: 'sepia(35%) contrast(115%)', opis: 'Inwersja temperatur – warstwa ciepłego powietrza blokująca rozpraszanie spalin w dolinach.' },
+            { plik: '3.jpeg', filtr: 'saturate(140%) brightness(85%)', opis: 'Kaniony uliczne – gromadzenie się spalin samochodowych w gęstej zabudowie miejskiej.' }
+        ];
+        var nrZdjecia = 0;
+
+        function otworzZdjecie(nr) {
+            nrZdjecia = nr;
+            var img = document.getElementById('lightbox-img');
+            img.src = zdjecia[nr].plik;
+            img.style.filter = zdjecia[nr].filtr;
+            document.getElementById('lightbox-tekst').innerText = zdjecia[nr].opis;
+            document.getElementById('lightbox').classList.add('otwarty');
+        }
+
+        function zmienZdjecie(kierunek) {
+            nrZdjecia = nrZdjecia + kierunek;
+            if (nrZdjecia >= zdjecia.length) nrZdjecia = 0;
+            if (nrZdjecia < 0) nrZdjecia = zdjecia.length - 1;
+            otworzZdjecie(nrZdjecia);
+        }
+
+        function zamknijZdjecie() {
+            document.getElementById('lightbox').classList.remove('otwarty');
+        }
+    </script>
 
 </body>
 </html>
